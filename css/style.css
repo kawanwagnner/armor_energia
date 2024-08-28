@@ -89,9 +89,16 @@
 }
 /*** Topbar Start ***/
 
+/* Line header */
+.line {
+  width: 100% !important;
+  height: 10px;
+  background: linear-gradient(135deg, orange 60%, cyan);
+}
+
 /*** Navbar ***/
 .navbar {
-  transform: translateX(15%);
+  transform: translate(17%, 10%);
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -113,6 +120,10 @@
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
   color: var(--color-default);
+}
+
+.navbar-light .navbar-brand {
+  transform: translateY(10px);
 }
 
 .navbar-light .navbar-brand img {
@@ -226,38 +237,21 @@
     content: "";
     width: 0;
     height: 2px;
-    bottom: -1px;
-    left: 50%;
+    bottom: 25px;
+    left: 0%;
     background: var(--color-default);
     transition: 0.5s;
   }
 
   .sticky-top.navbar-light .navbar-nav .nav-item::before {
-    bottom: 0;
-  }
-
-  .navbar-light .navbar-nav .nav-item::after {
-    content: "";
-    position: absolute;
-    bottom: 1px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 10px solid;
-    border-color: transparent transparent var(--color-default) transparent;
-    opacity: 0;
-    transition: 0.5s;
-  }
-
-  .navbar-light .navbar-nav .nav-item:hover::after,
-  .navbar-light .navbar-nav .nav-item.active::after {
-    bottom: 1px;
-    opacity: 1;
+    bottom: 25px;
   }
 
   .navbar-light .navbar-nav .nav-item:hover::before,
   .navbar-light .navbar-nav .nav-item.active::before {
     width: calc(100% - 2px);
-    left: 1px;
+    left: -1px;
+    bottom: 25px;
   }
 
   .navbar-light .navbar-nav .nav-link.nav-contact::before {
@@ -964,7 +958,7 @@
 }
 
 .btn-primary-css {
-  background-color: var(--color-default);
+  background-color: none;
   color: #fff;
 }
 
