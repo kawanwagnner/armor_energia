@@ -1,6 +1,10 @@
 :root {
   --color-default: #f9c000;
-  --color-default-bold: #ffee00;
+  --color-default-bold: #ffc525;
+}
+
+.text-black {
+  color: #232323 !important;
 }
 
 /*** Spinner Start ***/
@@ -347,21 +351,21 @@
   display: flex;
   align-items: center;
   text-align: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-color: none;
   background-size: cover;
 }
 
 .carousel-caption-2 h4 {
-  transform: translateY(10%);
+  line-height: 0px;
 }
 
 /* Estilo para o texto dinâmico */
 .texto-dinamico {
-  font-size: 100px; /* Tamanho da fonte */
+  font-size: 50px;
   font-weight: bold;
-  color: transparent !important; /* Texto invisível, apenas o contorno será visível */
-  -webkit-text-stroke: 2px #cccccc5b; /* Contorno do texto */
-  text-transform: uppercase; /* Para garantir que o texto fique em maiúsculas */
+  color: transparent !important;
+  -webkit-text-stroke: 2px #00000056; /* Contorno do texto */
+  text-transform: uppercase;
 }
 
 /* .texto-dinamico::before {
@@ -806,7 +810,7 @@
 /*** Team End ***/
 
 /*** testimonial Start ***/
-.testimonial .owl-nav .owl-prev {
+.owl-prev {
   position: absolute;
   top: -58px;
   right: 0;
@@ -817,12 +821,12 @@
   transition: 0.5s;
 }
 
-.testimonial .owl-nav .owl-prev:hover {
+.owl-prev:hover {
   background: var(--color-default-bold);
   color: var(--bs-white);
 }
 
-.testimonial .owl-nav .owl-next {
+.owl-next {
   position: absolute;
   top: -58px;
   right: 88px;
@@ -833,7 +837,7 @@
   transition: 0.5s;
 }
 
-.testimonial .owl-nav .owl-next:hover {
+.owl-next:hover {
   background: var(--color-default-bold);
   color: var(--bs-white);
 }
