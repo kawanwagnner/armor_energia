@@ -7,6 +7,10 @@
   color: #232323 !important;
 }
 
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+}
+
 /*** Spinner Start ***/
 /*** Spinner ***/
 #spinner {
@@ -536,7 +540,7 @@
   margin-left: 30px;
 }
 
-.about .about-img::before {
+/* .about .about-img::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -556,7 +560,7 @@
   bottom: 30px;
   border-radius: 10px;
   background: var(--color-default-bold);
-}
+} */
 
 .about .about-img .about-exp {
   position: absolute;
@@ -572,12 +576,19 @@
   margin-left: -30px;
   border-radius: 10px;
 }
+
+@media (min-width: 1200px) {
+  .pt-xl-5 {
+    padding-top: 9rem !important;
+  }
+}
 /*** About End ***/
 
 /*** Service Start ***/
 .service-item {
   position: relative;
-  box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+  border: 1px solid red;
+  /* box-shadow: 0 0 45px rgba(0, 0, 0, 0.08); */
 }
 
 .service-item::after {
@@ -610,7 +621,7 @@
 }
 
 .service-item:hover .service-content a:hover {
-  color: var(--color-default-bold);
+  color: #000;
 }
 
 .service-item:hover .service-content p {
@@ -624,7 +635,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-default);
   transition: 0.5s;
 }
 
@@ -668,6 +678,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.content-text-promotion h1 {
+  color: var(--color-default-bold);
+}
+
+.content-text-promotion span {
+  -webkit-text-stroke: 2px #ffffffaa;
 }
 /*** Counter End ***/
 
@@ -871,7 +889,7 @@
 .testimonial-carousel .owl-dots .owl-dot span {
   position: relative;
   margin-top: 50%;
-  margin-left: 50%;
+  margin-left: 52.5%;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
