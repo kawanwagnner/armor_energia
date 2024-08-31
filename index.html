@@ -39,44 +39,6 @@
 
     <!-- CSS -->
     <link href="css/style.css" rel="stylesheet" />
-
-    <style>
-      .simulador-title {
-        font-size: 4.5rem; /* 72px */
-        font-weight: 100;
-        color: #ececec;
-      }
-
-      .simulador-subtitle {
-        font-size: 1.75rem; /* 28px */
-        font-weight: bold;
-      }
-
-      .simulador-input {
-        font-size: 1.5rem; /* 48px */
-        color: green;
-        background: transparent;
-        border: none;
-        width: 100%;
-        margin-top: -10px;
-        outline: none;
-      }
-
-      #economia-anual {
-        font-size: 1.1rem; /* 48px */
-        color: green;
-      }
-
-      .btn-simulacao {
-        background-color: #ff5e5e;
-        color: #fff;
-        font-size: 1.125rem; /* 18px */
-      }
-
-      .btn-simulacao:hover {
-        background-color: #ff3b3b;
-      }
-    </style>
   </head>
 
   <body>
@@ -612,9 +574,9 @@
     <!-- About End -->
 
     <!-- Simulator -->
-    <section class="container-fluid p-5 bg-light">
+    <section id="simulator" class="simulator container-fluid p-5 bg-light">
       <div class="container mx-auto py-5 row">
-        <div class="col-lg-6 mb-5">
+        <div class="col-lg-6 mb-5 text-center pt-xl-4">
           <h1 class="texto-dinamico open-sans">SIMULADOR</h1>
           <h2 class="simulador-subtitle mb-4">Simule a sua economia</h2>
           <div class="form-group">
@@ -623,83 +585,13 @@
             </label>
             <input
               type="text"
-              class="simulador-input form-control-plaintext"
+              class="simulador-input form-control-plaintext mx-auto"
               id="gasto"
               placeholder="R$0,00"
               oninput="formatarMoeda(this)"
               onblur="calcularEconomia()"
-              maxlength="15"
+              maxlength="11"
             />
-          </div>
-          <div class="form-group">
-            <label class="font-weight-bold">QUAL É O GRUPO DE TENSÃO?</label
-            ><br />
-            <div class="form-check form-check-inline">
-              <input
-                type="radio"
-                class="form-check-input"
-                name="tensao"
-                id="residencial"
-                value="residencial"
-                checked
-              />
-              <label class="form-check-label" for="residencial"
-                >Residencial</label
-              >
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                type="radio"
-                class="form-check-input"
-                name="tensao"
-                id="comercial"
-                value="comercial"
-              />
-              <label class="form-check-label" for="comercial">Comercial</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                type="radio"
-                class="form-check-input"
-                name="tensao"
-                id="industrial"
-                value="industrial"
-              />
-              <label class="form-check-label" for="industrial"
-                >Industrial</label
-              >
-            </div>
-          </div>
-          <br />
-          <div class="form-group">
-            <label class="font-weight-bold"
-              >QUAL É A SUA DISTRIBUIDORA DE ENERGIA?</label
-            >
-            <select
-              class="form-control"
-              id="distribuidora"
-              onchange="calcularEconomia()"
-            >
-              <option value="AAME">AAME</option>
-              <option value="Boa Vista">Boa Vista</option>
-              <option value="CASTRO - DIS">CASTRO - DIS</option>
-              <option value="CEA">CEA</option>
-              <option value="CEBDIS">CEBDIS</option>
-              <option value="CEDRAP">CEDRAP</option>
-              <option value="CEDRI">CEDRI</option>
-              <option value="CEEE-D">CEEE-D</option>
-              <option value="CEGERO">CEGERO</option>
-              <option value="CEJAMA">CEJAMA</option>
-              <option value="CELESC-DIS">CELESC-DIS</option>
-              <option value="CELG-D">CELG-D</option>
-              <option value="CELPE">CELPE</option>
-              <option value="CEMAR">CEMAR</option>
-              <option value="CEMIG-D">CEMIG-D</option>
-              <option value="CEMIRIM">CEMIRIM</option>
-              <option value="CEPRAG">CEPRAG</option>
-              <option value="CERAÇÁ">CERAÇÁ</option>
-              <option value="CERAL">CERAL</option>
-            </select>
           </div>
         </div>
 
@@ -711,21 +603,81 @@
             <p>R$<span id="economia-mensal">0</span> por mês</p>
             <hr class="mt-3 w-75 mx-auto" />
 
-            <form id="contactForm">
+            <form
+              id="contactForm"
+              action="/send-email"
+              method="POST"
+              enctype="multipart/form-data"
+            >
               <div class="form-group">
                 <label for="nome">Nome*</label>
-                <input type="text" class="form-control" id="nome" required />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nome"
+                  name="nome"
+                  required
+                />
               </div>
               <div class="form-group">
                 <label for="email">E-mail*</label>
-                <input type="email" class="form-control" id="email" required />
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="telefone"
+                  name="telefone"
+                />
+              </div>
+              <div class="form-group">
+                <label for="assunto">Assunto*</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="assunto"
+                  name="assunto"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="mensagem">Mensagem*</label>
+                <textarea
+                  class="form-control"
+                  id="mensagem"
+                  name="mensagem"
+                  rows="4"
+                  required
+                ></textarea>
               </div>
               <div class="form-group">
                 <label for="whatsapp">WhatsApp</label>
-                <input type="text" class="form-control" id="whatsapp" />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="whatsapp"
+                  name="whatsapp"
+                />
+              </div>
+              <div class="form-group">
+                <label for="arquivo">Anexar Arquivo</label>
+                <input
+                  type="file"
+                  class="form-control-file"
+                  id="arquivo"
+                  name="arquivo"
+                />
               </div>
               <button type="submit" class="btn btn-simulacao btn-block mt-4">
-                Simulação Completa
+                Enviar
               </button>
             </form>
 
@@ -735,52 +687,7 @@
         </div>
       </div>
     </section>
-    <script>
-      function calcularEconomia() {
-        let gastoMensal = document.getElementById("gasto").value;
-
-        // Remove a formatação antes de realizar os cálculos
-        gastoMensal = gastoMensal.replace(/\./g, "").replace(",", ".");
-
-        // Converte para número flutuante
-        gastoMensal = parseFloat(gastoMensal);
-
-        // Verifica se o valor é um número válido
-        if (isNaN(gastoMensal)) {
-          gastoMensal = 0;
-        }
-
-        let economiaAnual = gastoMensal * 0.2 * 12;
-        let economiaMensal = economiaAnual / 12;
-
-        // Formata os valores para exibição
-        document.getElementById("economia-anual").textContent =
-          "R$ " +
-          economiaAnual
-            .toFixed(2)
-            .replace(".", ",")
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        document.getElementById("economia-mensal").textContent =
-          "R$ " +
-          economiaMensal
-            .toFixed(2)
-            .replace(".", ",")
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-      }
-
-      function formatarMoeda(input) {
-        let valor = input.value.replace(/\D/g, "");
-
-        if (valor.length > 11) {
-          valor = valor.slice(0, 11);
-        }
-
-        valor = valor.replace(/(\d{1,2})$/, ",$1");
-        valor = valor.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
-
-        input.value = valor;
-      }
-    </script>
+    <script src="js/simulator.js"></script>
     <!-- End Simulator -->
 
     <!-- Fact Counter -->

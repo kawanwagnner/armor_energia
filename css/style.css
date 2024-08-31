@@ -584,6 +584,51 @@
 }
 /*** About End ***/
 
+/* Simulator Start */
+#simulator h1 {
+  font-size: 65px;
+}
+
+.simulador-title {
+  font-size: 4.5rem; /* 72px */
+  font-weight: 100;
+  color: #ececec;
+}
+
+.simulador-subtitle {
+  font-size: 1.75rem; /* 28px */
+  font-weight: bold;
+}
+
+.simulador-input {
+  font-size: 3rem;
+  color: green;
+  background: transparent;
+  border: none;
+  width: 8.5em;
+  margin-top: -10px;
+  margin: 0 auto;
+  outline: none;
+  text-align: center;
+  background: none;
+}
+
+#economia-anual {
+  font-size: 1.5rem; /* 48px */
+  color: green;
+}
+
+.btn-simulacao {
+  background-color: #ff5e5e;
+  color: #fff;
+  font-size: 1.125rem; /* 18px */
+}
+
+.btn-simulacao:hover {
+  background-color: #ff3b3b;
+}
+/* Simulator End */
+
 /*** Service Start ***/
 .service-item {
   position: relative;

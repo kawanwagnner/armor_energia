@@ -1,93 +1,115 @@
-// const nodemailer = require("nodemailer");
+const express = require("express");
+const nodemailer = require("nodemailer");
+const multer = require("multer");
+const path = require("path");
+const fs = require("fs");
+const SMTP_CONFIG = require("./config/smtp");
 
-// const SMTP_CONFIG = require("./config/smtp");
+const app = express();
+const port = 3000;
 
-// const transporter = nodemailer.createTransport({
-//   host: SMTP_CONFIG.host,
-//   port: SMTP_CONFIG.port,
-//   secure: false, // Usar 'true' para porta 465, 'false' para outras portas
-//   auth: {
-//     user: SMTP_CONFIG.user,
-//     pass: SMTP_CONFIG.pass,
-//   },
-//   tls: {
-//     rejectUnauthorized: false, // Permite conexões não autorizadas (útil para testar)
-//   },
-// });
+// Configuração do middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
 
-// async function run() {
-//   const mailSent = await transporter.sendMail({
-//     text: "Texto do E-mail", // Texto do corpo do e-mail (sem formatação)
-//     subject: "Assunto do e-mail", // Assunto do e-mail
-//     from: "Victor Moraes <armorenergia.contato@gmail.com>", // Corrigido o fechamento do campo 'from'
-//     to: ["armorenergia.contato@gmail.com"], // Lista de destinatários
-//     html: `
-//     <html>
-//     <body>
-//       <strong>Conteúdo HTML</strong></br>Do E-mail
-//     </body>
-//   </html>
-//     `, // Corpo do e-mail em HTML
-//   });
+// Certifica-se de que a pasta 'uploads' existe
+if (!fs.existsSync("uploads")) {
+  fs.mkdirSync("uploads");
+}
 
-//   console.log(mailSent); // Exibe a resposta do envio no console
-// }
+// Configuração do multer para upload de arquivos
+const upload = multer({ dest: "uploads/" });
 
-// run();
+// Configuração do transporte do nodemailer
+const transporter = nodemailer.createTransport({
+  host: SMTP_CONFIG.host,
+  port: SMTP_CONFIG.port,
+  secure: SMTP_CONFIG.port === 465, // Use true para porta 465 (SMTP seguro)
+  auth: {
+    user: SMTP_CONFIG.user,
+    pass: SMTP_CONFIG.pass,
+  },
+  tls: {
+    rejectUnauthorized: false, // Permite conexões não autorizadas (útil para testar)
+  },
+});
 
-// Acaba aqui...
+// Teste isolado de rota POST
+app.post("/test", (req, res) => {
+  res.status(200).send("Rota POST /test funcionando!");
+});
 
-// const nodemailer = require("nodemailer");
+// Rota para enviar Email
+app.post("/send-email", upload.single("arquivo"), async (req, res) => {
+  const { nome, email, tel, assunto, msg, whatsapp } = req.body;
+  const arquivo = req.file;
 
-// const SMTP_CONFIG = require("./config/smtp");
+  try {
+    const mailOptions = {
+      from: `"${nome}" <${email}>`,
+      to: "armorenergia.contato@gmail.com",
+      subject: assunto,
+      html: `
+        <html>
+        <body>
+          <p><strong>Nome:</strong> ${nome}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>tel:</strong> ${tel}</p>
+          <p><strong>Assunto:</strong> ${assunto}</p>
+          <p><strong>msg:</strong> ${msg}</p>
+          <p><strong>WhatsApp:</strong> ${whatsapp}</p>
+        </body>
+        </html>
+      `,
+    };
 
-// const transporter = nodemailer.createTransport({
-//   host: SMTP_CONFIG.host,
-//   port: SMTP_CONFIG.port,
-//   secure: false,
-//   auth: {
-//     user: SMTP_CONFIG.user,
-//     pass: SMTP_CONFIG.pass,
-//   },
-//   tls: {
-//     rejectUnauthorized: false,
-//   },
-// });
+    if (arquivo) {
+      mailOptions.attachments = [
+        {
+          filename: arquivo.originalname,
+          path: arquivo.path,
+        },
+      ];
+    }
 
-// document
-//   .getElementById("contactForm")
-//   .addEventListener("submit", async function (event) {
-//     event.preventDefault(); // Previne a atualização da página
+    // Envia o email e captura as informações de envio
+    const mailSent = await transporter.sendMail(mailOptions);
 
-//     const nome = document.getElementById("nome").value;
-//     const email = document.getElementById("email").value;
-//     const whatsapp = document.getElementById("whatsapp").value;
+    // Loga informações detalhadas sobre o envio
+    console.log("Email enviado com sucesso:", mailSent);
 
-//     const messageBody = `
-//     <html>
-//     <body>
-//       <p><strong>Nome:</strong> ${nome}</p>
-//       <p><strong>E-mail:</strong> ${email}</p>
-//       <p><strong>WhatsApp:</strong> ${whatsapp}</p>
-//     </body>
-//     </html>
-//   `;
+    if (mailSent.accepted.length > 0) {
+      console.log("Destinatários que aceitaram o email:", mailSent.accepted);
+    } else {
+      console.log("Nenhum destinatário aceitou o email.");
+    }
 
-//     try {
-//       const mailSent = await transporter.sendMail({
-//         text: `Nome: ${nome}\nE-mail: ${email}\nWhatsApp: ${whatsapp}`,
-//         subject: "Simulação Completa",
-//         from: `${nome} <${email}>`,
-//         to: ["armorenergia.contato@gmail.com"],
-//         html: messageBody,
-//       });
+    if (arquivo) {
+      // Remove o arquivo temporário
+      fs.unlink(arquivo.path, (err) => {
+        if (err) console.error("Erro ao remover o arquivo temporário:", err);
+      });
+    }
 
-//       console.log(mailSent);
-//       document.getElementById("resultMessage").innerText =
-//         "E-mail enviado com sucesso!";
-//     } catch (error) {
-//       console.error(error);
-//       document.getElementById("resultMessage").innerText =
-//         "Erro ao enviar o e-mail.";
-//     }
-//   });
+    // Envia uma resposta ao cliente com informações do envio
+    res
+      .status(200)
+      .send(`Email enviado com sucesso para: ${mailSent.accepted.join(", ")}`);
+  } catch (error) {
+    console.error("Erro ao enviar o Email:", error);
+
+    if (arquivo) {
+      fs.unlink(arquivo.path, (err) => {
+        if (err) console.error("Erro ao remover o arquivo temporário:", err);
+      });
+    }
+
+    res.status(500).send(`Erro ao enviar o Email: ${error.message}`);
+  }
+});
+
+// Inicie o servidor
+app.listen(port, () => {
+  console.log(`Servidor rodando em http://localhost:${port}`);
+});
