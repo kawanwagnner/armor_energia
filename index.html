@@ -169,7 +169,7 @@
                     style="max-width: 900px"
                   >
                     <h4
-                      class="text-black text-uppercase fw-bold mb-4 fadeInRight animated texto-dinamico"
+                      class="text-black text-uppercase fw-bold mb-4 fadeInRight animated texto-dinamico open-sans"
                       data-animation="fadeInRight"
                       data-delay="1s"
                       style="animation-delay: 1s; letter-spacing: 3px"
@@ -177,7 +177,7 @@
                       ENERGIA
                     </h4>
                     <h1
-                      class="display-2 text-capitalize text-black mb-4 fadeInRight animated"
+                      class="display-2 text-capitalize text-black mb-4 fadeInRight animated open-sans"
                       data-animation="fadeInRight"
                       data-delay="1.3s"
                       style="animation-delay: 1.3s"
@@ -225,7 +225,7 @@
                     style="max-width: 900px"
                   >
                     <h4
-                      class="text-black text-uppercase fw-bold mb-4 fadeInRight animated texto-dinamico"
+                      class="text-black text-uppercase fw-bold mb-4 fadeInRight animated texto-dinamico open-sans"
                       data-animation="fadeInRight"
                       data-delay="1s"
                       style="animation-delay: 1s; letter-spacing: 3px"
@@ -414,7 +414,7 @@
             data-wow-delay="0.2s"
             style="max-width: 800px"
           >
-            <h2 class="texto-dinamico fs-1">Soluções</h2>
+            <h2 class="texto-dinamico open-sans fs-1">Soluções</h2>
             <h6 class="fs-4 w-100 mx-auto text-capitalize mb-3 open-sans">
               A Armor Energia fornece as melhores soluções, para os seus
               negócios, por meio de uma equipe altamente qualificada. Conheça as
@@ -551,7 +551,7 @@
           </div>
           <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
             <div class="about-item pt-xl-5">
-              <h4 class="texto-dinamico fs-1">Sobre nós</h4>
+              <h4 class="texto-dinamico open-sans fs-1">Sobre nós</h4>
               <h1 class="display-6 mb-3">Quem é a Armor Energia?</h1>
               <p class="mb-4 fs-5">
                 A Armor Energia é capaz de fornecer produtos e soluções
@@ -610,7 +610,9 @@
               enctype="multipart/form-data"
             >
               <div class="form-group">
-                <label for="nome">Nome*</label>
+                <label for="nome"
+                  ><span class="text-danger">*</span> Nome</label
+                >
                 <input
                   type="text"
                   class="form-control"
@@ -619,8 +621,11 @@
                   required
                 />
               </div>
+
               <div class="form-group">
-                <label for="email">E-mail*</label>
+                <label for="email"
+                  ><span class="text-danger">*</span> E-mail</label
+                >
                 <input
                   type="email"
                   class="form-control"
@@ -629,27 +634,25 @@
                   required
                 />
               </div>
+
               <div class="form-group">
-                <label for="telefone">Telefone</label>
-                <input
-                  type="tel"
-                  class="form-control"
-                  id="telefone"
-                  name="telefone"
-                />
-              </div>
-              <div class="form-group">
-                <label for="assunto">Assunto*</label>
+                <label for="zap"
+                  ><span class="text-danger">*</span> WhatsApp</label
+                >
                 <input
                   type="text"
                   class="form-control"
-                  id="assunto"
-                  name="assunto"
+                  id="zap"
+                  name="zap"
                   required
                 />
               </div>
+
               <div class="form-group">
-                <label for="mensagem">Mensagem*</label>
+                <label for="mensagem"
+                  ><span class="text-danger">*</span> Mensagem ou
+                  Observação</label
+                >
                 <textarea
                   class="form-control"
                   id="mensagem"
@@ -658,24 +661,7 @@
                   required
                 ></textarea>
               </div>
-              <div class="form-group">
-                <label for="whatsapp">WhatsApp</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="whatsapp"
-                  name="whatsapp"
-                />
-              </div>
-              <div class="form-group">
-                <label for="arquivo">Anexar Arquivo</label>
-                <input
-                  type="file"
-                  class="form-control-file"
-                  id="arquivo"
-                  name="arquivo"
-                />
-              </div>
+
               <button type="submit" class="btn btn-simulacao btn-block mt-4">
                 Enviar
               </button>
@@ -695,7 +681,7 @@
       <div class="container py-5">
         <div class="content-text-promotion">
           <h1 class="fs-1 text-center">
-            <span class="texto-dinamico">ECONOMIA</span> <br />
+            <span class="texto-dinamico open-sans">ECONOMIA</span> <br />
             de ATÉ 40% na conta de luz com a <br />
             Armor Energia
           </h1>
@@ -712,8 +698,8 @@
           data-wow-delay="0.2s"
           style="max-width: 800px"
         >
-          <h4 class="texto-dinamico text-start">Números</h4>
-          <h1 class="display-3 text-capitalize mb-3 text-start">
+          <h4 class="texto-dinamico open-sans text-start">Números</h4>
+          <h1 class="display-3 text-capitalize mb-3 text-start open-sans">
             Principais Indicadores
           </h1>
         </div>
