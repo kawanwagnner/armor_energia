@@ -7,6 +7,9 @@
     <meta content="" name="keywords" />
     <meta content="" name="description" />
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/logo-armor.png" type="image/x-icon" />
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -68,9 +71,10 @@
             <h1
               class="text-primary-css logo flex-fill align-content-end justify-content-lg-around text-black"
             >
-              <i class="i-logo"><img src="img/logo-armor.png" alt="" /></i>Armor
-              Energia
+              <i class="i-logo"><img src="img/logo-armor.png" alt="" /></i
+              >Armor<span> Energia</span>
             </h1>
+
             <!-- <img src="img/logo.png" alt="Logo"> -->
           </a>
           <button
@@ -78,9 +82,13 @@
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
             <span class="fa fa-bars"></span>
           </button>
+
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto py-0">
               <a href="index.html" class="nav-item nav-link active">Início</a>
@@ -92,18 +100,17 @@
               >
               <div class="nav-item dropdown">
                 <a
-                  href="https://www.instagram.com/armorenergia/"
-                  target="_blank"
-                  class="nav-link text-black dropdown-toggle"
+                  href="#"
+                  class="nav-link dropdown-toggle text-black"
                   data-bs-toggle="dropdown"
-                  >Páginas</a
                 >
+                  Páginas
+                </a>
                 <div class="dropdown-menu m-0">
                   <a href="feature.html" class="dropdown-item">Nosso Lema</a>
-                  <!-- <a href="product.html" class="dropdown-item">Our Product</a> -->
                   <a href="team.html" class="dropdown-item">Nossos Líderes</a>
                   <a href="testimonial.html" class="dropdown-item"
-                    >Cometários</a
+                    >Comentários</a
                   >
                 </div>
               </div>
@@ -111,6 +118,7 @@
                 >Contato</a
               >
             </div>
+
             <div class="d-none d-xl-flex me-3">
               <div
                 class="d-flex flex-column pe-3 border-end border-primary-css"
@@ -121,7 +129,7 @@
                   target="_blank"
                 >
                   <i class="fa-solid fa-info-circle text-black"></i>
-                  <span class="text-black">Saiba Mais</span>
+                  <span class="text-black about-more">Saiba Mais</span>
                 </a>
               </div>
             </div>
@@ -134,8 +142,8 @@
             <a
               href="#"
               class="btn btn-primary-css d-inline-flex flex-shrink-0 py-2 px-2 text-black"
-              ><i class="fa-brands fa-linkedin"></i>
-            </a>
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
             <a
               href="#"
               class="btn btn-primary-css d-inline-flex flex-shrink-0 py-2 px-2 text-black"
@@ -157,13 +165,13 @@
               <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-              <div class="carousel-item">
+              <div class="carousel-item active">
                 <img
                   src="img/carrossel1.png"
                   class="img-fluid w-100"
                   alt="Image"
                 />
-                <div class="carousel-caption-2">
+                <div class="carousel-caption-2 mt-sm-5">
                   <div
                     class="carousel-caption-2-content"
                     style="max-width: 900px"
@@ -213,9 +221,9 @@
                   </div>
                 </div>
               </div>
-              <div class="carousel-item active">
+              <div class="carousel-item">
                 <img
-                  src="img/carrossel3.png"
+                  src="img/carrossel2.png"
                   class="img-fluid w-100"
                   alt="Image"
                 />
@@ -269,7 +277,7 @@
               </div>
               <div class="carousel-item">
                 <img
-                  src="img/carrossel1.png"
+                  src="img/carrossel3.png"
                   class="img-fluid w-100"
                   alt="Image"
                 />
@@ -300,9 +308,11 @@
                       data-delay="1.5s"
                       style="animation-delay: 1.5s"
                     >
-                      Por meio de uma solução sustentável e inovadora, o
-                      consumidor reduz seus custos com energia na sua conta de
-                      luz. Fale conosco hoje! Rápido e sem burocracia.
+                      Levamos descontos de até 35% na conta de luz para
+                      comércios e indústrias em alta tensão com gastos de até R$
+                      70.000,00. E também descontos de até 20% para comércios e
+                      empresas em baixa tensão, com entrega de energia
+                      renovável.
                     </p>
                     <div
                       class="carousel-caption-2-content-btn fadeInRight animated"
@@ -868,7 +878,7 @@
                       alt="Logo rodapé" /></i
                   >Armor
                 </h3>
-                <p class="mb-3">#AmorPelaPalavra</p>
+                <p class="mb-3">Soluções | Inovação</p>
               </div>
             </div>
           </div>
@@ -970,6 +980,7 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
     <!-- Include Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 

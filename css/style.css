@@ -104,6 +104,22 @@
   background: linear-gradient(135deg, orange 60%, cyan);
 }
 
+/* .text-primary-css.logo {
+  font-size: clamp(1.5rem, 4vw + 1rem, 2rem);
+} */
+
+@media (max-width: 520px) {
+  .text-primary-css.logo i + span {
+    display: none;
+  }
+}
+
+@media (max-width: 1540px) {
+  .about-more {
+    display: none;
+  }
+}
+
 /*** Navbar ***/
 .navbar {
   transform: translate(17%, 10%);
@@ -400,7 +416,6 @@
 .carousel-caption-2-content {
   text-align: start;
   padding-left: 200px;
-  transform: translateY(-20%);
 }
 
 .carousel-caption-2-content .carousel-caption-2-content-btn {
@@ -632,8 +647,6 @@
 /*** Service Start ***/
 .service-item {
   position: relative;
-  border: 1px solid red;
-  /* box-shadow: 0 0 45px rgba(0, 0, 0, 0.08); */
 }
 
 .service-item::after {
