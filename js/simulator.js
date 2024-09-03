@@ -1,6 +1,4 @@
 function calcularEconomia() {
-  console.log("calcularEconomia chamado");
-
   // Obtém o valor do gasto mensal do input
   let gastoMensal = document.getElementById("gasto").value;
 

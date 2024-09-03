@@ -645,6 +645,7 @@
               oninput="formatarMoeda(this)"
               onblur="calcularEconomia()"
               maxlength="11"
+              required
             />
           </div>
         </div>
@@ -657,12 +658,7 @@
             <p>R$<span id="economia-mensal">0</span> por mês</p>
             <hr class="mt-3 w-75 mx-auto" />
 
-            <form
-              id="contactForm"
-              action="/send-email"
-              method="POST"
-              enctype="multipart/form-data"
-            >
+            <form id="contactForm" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="nome"
                   ><span class="text-danger">*</span> Nome</label
@@ -704,8 +700,8 @@
 
               <div class="form-group">
                 <label for="mensagem"
-                  ><span class="text-danger">*</span> Mensagem ou
-                  Observação</label
+                  ><span class="text-danger">*</span> Por onde nos
+                  encontrou?</label
                 >
                 <textarea
                   class="form-control"
@@ -865,7 +861,11 @@
             <div class="footer-item d-flex flex-column">
               <div class="footer-item">
                 <h3 class="text-white mb-4">
-                  <i><img width="75" src="img/logo.png" alt="Logo rodapé" /></i
+                  <i
+                    ><img
+                      width="75"
+                      src="img/logo-armor.png"
+                      alt="Logo rodapé" /></i
                   >Armor
                 </h3>
                 <p class="mb-3">#AmorPelaPalavra</p>
@@ -975,5 +975,6 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+    <script src="js/fetchAPI.js"></script>
   </body>
 </html>
