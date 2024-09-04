@@ -40,6 +40,13 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
+    <!-- MagicTool - Carrossel de Parceiros -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/js/MagicToolbox/MagicScrollV2/magicscroll.css"
+    />
+
     <!-- CSS -->
     <link href="css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/modals.css" />
@@ -129,7 +136,7 @@
         >
           <a href="#" class="navbar-brand p-0">
             <h1
-              class="text-primary-css logo flex-fill align-content-end justify-content-lg-around text-black"
+              class="text-primary-css logo flex-fill align-content-end justify-content-lg-around text-black open-sans"
             >
               <i class="i-logo"><img src="img/logo-armor.png" alt="" /></i
               >Armor<span> Energia</span>
@@ -244,7 +251,7 @@
                     style="max-width: 900px"
                   >
                     <h4
-                      class="text-black text-uppercase fw-bold mb-4 fadeInRight animated texto-dinamico open-sans"
+                      class="text-black text-uppercase fw-bold mb-4 fadeInRight animated texto-dinamico"
                       data-animation="fadeInRight"
                       data-delay="1s"
                       style="animation-delay: 1s; letter-spacing: 3px"
@@ -301,7 +308,7 @@
                     style="max-width: 900px"
                   >
                     <h4
-                      class="text-black text-uppercase fw-bold mb-4 fadeInRight animated texto-dinamico open-sans"
+                      class="text-black text-uppercase fw-bold mb-4 fadeInRight animated texto-dinamico"
                       data-animation="fadeInRight"
                       data-delay="1s"
                       style="animation-delay: 1s; letter-spacing: 3px"
@@ -356,7 +363,7 @@
                     style="max-width: 900px"
                   >
                     <h4
-                      class="text-black text-uppercase fw-bold mb-4 fadeInRight animated texto-dinamico open-sans"
+                      class="text-black text-uppercase fw-bold mb-4 fadeInRight animated texto-dinamico"
                       data-animation="fadeInRight"
                       data-delay="1s"
                       style="animation-delay: 1s; letter-spacing: 3px"
@@ -401,40 +408,42 @@
                 </div>
               </div>
             </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselId"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon btn btn-primary-css fadeInLeft animated"
-                aria-hidden="true"
-                data-animation="fadeInLeft"
-                data-delay="1.1s"
-                style="animation-delay: 1.3s"
+            <div class="btns bg-danger">
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselId"
+                data-bs-slide="prev"
               >
-                <i class="fa fa-angle-left fa-3x"></i>
-              </span>
-              <span class="visually-hidden">Voltar</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselId"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon btn btn-primary-css fadeInRight animated"
-                aria-hidden="true"
-                data-animation="fadeInLeft"
-                data-delay="1.1s"
-                style="animation-delay: 1.3s"
+                <span
+                  class="carousel-control-prev-icon btn btn-primary-css fadeInLeft animated"
+                  aria-hidden="true"
+                  data-animation="fadeInLeft"
+                  data-delay="1.1s"
+                  style="animation-delay: 1.3s"
+                >
+                  <i class="fa fa-angle-left fa-3x"></i>
+                </span>
+                <span class="visually-hidden">Voltar</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselId"
+                data-bs-slide="next"
               >
-                <i class="fa fa-angle-right fa-3x"></i>
-              </span>
-              <span class="visually-hidden">Avançar</span>
-            </button>
+                <span
+                  class="carousel-control-next-icon btn btn-primary-css fadeInRight animated"
+                  aria-hidden="true"
+                  data-animation="fadeInLeft"
+                  data-delay="1.1s"
+                  style="animation-delay: 1.3s"
+                >
+                  <i class="fa fa-angle-right fa-3x"></i>
+                </span>
+                <span class="visually-hidden">Avançar</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -472,28 +481,6 @@
             </div>
           </div>
         </div>
-        <script>
-          document
-            .getElementById("copyCNPJBtn")
-            .addEventListener("click", function (event) {
-              event.preventDefault();
-              var cnpj = "58.397.639/0012-95"; // Substitua pelo CNPJ real
-
-              // Cria um elemento temporário para copiar o texto
-              var tempInput = document.createElement("input");
-              tempInput.value = cnpj;
-              document.body.appendChild(tempInput);
-              tempInput.select();
-              document.execCommand("copy");
-              document.body.removeChild(tempInput);
-
-              // Exibe o modal de confirmação
-              var copiedModal = new bootstrap.Modal(
-                document.getElementById("copiedModal")
-              );
-              copiedModal.show();
-            });
-        </script>
         <!-- Carousel End -->
       </div>
       <!-- Navbar & Hero End -->
@@ -547,7 +534,7 @@
             data-wow-delay="0.2s"
             style="max-width: 800px"
           >
-            <h2 class="texto-dinamico open-sans fs-1">Soluções</h2>
+            <h2 class="texto-dinamico fs-1">Soluções</h2>
             <h6 class="fs-4 w-100 mx-auto text-capitalize mb-3 open-sans">
               A Armor Energia fornece as melhores soluções, para os seus
               negócios, por meio de uma equipe altamente qualificada. Conheça as
@@ -559,13 +546,14 @@
             data-wow-delay="0.3s"
           >
             <div class="testimonial-item text-center p-4">
-              <h4 class="text-dark">
+              <h4 class="text-dark sans-serif">
                 <span class="text-warning">+</span> Economia
               </h4>
-              <p class="qualities-text w-50 text-center">
+              <p class="qualities-text text-center">
                 Levamos descontos de até 35% na conta de luz para comércios e
                 indústrias em alta tensão com gastos de até R$ 70.000,00.
               </p>
+              <br />
               <div class="d-block">
                 <div
                   class="d-flex justify-content-center text-secondary text-warning"
@@ -579,14 +567,14 @@
               </div>
             </div>
             <div class="testimonial-item text-center p-4">
-              <h4 class="text-dark">
+              <h4 class="text-dark sans-serif">
                 <span class="text-warning">+</span> Vantagem
               </h4>
-              <p class="qualities-text w-50 text-center">
+              <p class="qualities-text text-center">
                 Levamos descontos de até 20% na conta de luz para comércios e
                 empresas em baixa tensão, com entrega de energia renovável.
               </p>
-
+              <br />
               <div class="d-block">
                 <div
                   class="d-flex justify-content-center text-secondary text-warning"
@@ -600,13 +588,14 @@
               </div>
             </div>
             <div class="testimonial-item text-center p-4">
-              <h4 class="text-dark">
+              <h4 class="text-dark sans-serif">
                 <span class="text-warning">+</span> Geração Distribuída
               </h4>
-              <p class="qualities-text w-50 text-center">
+              <p class="qualities-text text-center">
                 Por meio de uma solução sustentável e inovadora, o consumidor
                 reduz seus custos com energia na sua conta de luz.
               </p>
+              <br />
               <div class="d-block">
                 <div
                   class="d-flex justify-content-center text-secondary text-warning"
@@ -620,13 +609,14 @@
               </div>
             </div>
             <div class="testimonial-item text-center p-4">
-              <h4 class="text-dark">
+              <h4 class="text-dark sans-serif">
                 <span class="text-warning">+</span> Livre
               </h4>
-              <p class="qualities-text w-50 text-center">
+              <p class="qualities-text text-center">
                 Até 35% de economia para médias e grandes empresas que operam em
                 alta tensão e têm gastos superiores a R$ 70.000,00.
               </p>
+              <br />
               <div class="d-block">
                 <div
                   class="d-flex justify-content-center text-secondary text-warning"
@@ -640,13 +630,14 @@
               </div>
             </div>
             <div class="testimonial-item text-center p-4">
-              <h4 class="text-dark">
+              <h4 class="text-dark sans-serif">
                 <span class="text-warning">+</span> Gestão
               </h4>
-              <p class="qualities-text w-50 text-center">
+              <p class="qualities-text text-center">
                 Para agentes do mercado livre que querem ter a melhor
                 experiência em gestão estratégica e operacional.
               </p>
+              <br />
               <div class="d-block">
                 <div
                   class="d-flex justify-content-center text-secondary text-warning"
@@ -684,9 +675,9 @@
           </div>
           <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
             <div class="about-item pt-xl-5">
-              <h4 class="texto-dinamico open-sans fs-1">Sobre nós</h4>
-              <h1 class="display-6 mb-3">Quem é a Armor Energia?</h1>
-              <p class="mb-4 fs-5">
+              <h4 class="texto-dinamico fs-1">Sobre nós</h4>
+              <h1 class="display-6 mb-3 sans-serif">Quem é a Armor Energia?</h1>
+              <p class="mb-4 fs-5 sans-serif">
                 A Armor Energia é capaz de fornecer produtos e soluções
                 padronizados para seus clientes e parceiros, atendendo às mais
                 diferentes demandas. Por meio da negociação de contratos de
@@ -708,9 +699,9 @@
 
     <!-- Simulator -->
     <section id="simulator" class="simulator container-fluid p-5 bg-light">
-      <div class="container mx-auto py-5 row">
-        <div class="col-lg-6 mb-5 text-center pt-xl-4">
-          <h1 class="texto-dinamico open-sans">SIMULADOR</h1>
+      <div class="container mx-auto py-3 row">
+        <div class="col-lg-6 mb-5 text-center pt-xl-4 mt-xl-5">
+          <h1 class="texto-dinamico">SIMULADOR</h1>
           <h2 class="simulador-subtitle mb-4">Simule a sua economia</h2>
           <div class="form-group">
             <label for="gasto" class="font-weight-bold">
@@ -782,13 +773,12 @@
                   ><span class="text-danger">*</span> Por onde nos
                   encontrou?</label
                 >
-                <textarea
+                <input
                   class="form-control"
                   id="mensagem"
                   name="mensagem"
-                  rows="4"
                   required
-                ></textarea>
+                />
               </div>
 
               <button type="submit" class="btn btn-simulacao btn-block mt-4">
@@ -810,7 +800,7 @@
       <div class="container py-5">
         <div class="content-text-promotion">
           <h1 class="fs-1 text-center">
-            <span class="texto-dinamico open-sans">ECONOMIA</span> <br />
+            <span class="texto-dinamico">ECONOMIA</span> <br />
             de ATÉ 40% na conta de luz com a <br />
             Armor Energia
           </h1>
@@ -827,8 +817,8 @@
           data-wow-delay="0.2s"
           style="max-width: 800px"
         >
-          <h4 class="texto-dinamico open-sans text-start">Números</h4>
-          <h1 class="display-3 text-capitalize mb-3 text-start open-sans">
+          <h4 class="texto-dinamico text-start">Números</h4>
+          <h1 class="display-3 text-capitalize mb-3 text-start">
             Principais Indicadores
           </h1>
         </div>
@@ -852,20 +842,40 @@
                           class="d-flex align-content-center justify-content-center gap-5"
                         >
                           <div class="service-btn my-2">
-                            <i class="fs-1 text-dark">+</i>
+                            <p
+                              class="d-flex align-content-center justify-content-center"
+                            >
+                              <i class="fs-1 text-dark">+</i>
+                              <span class="text-black">Região atuante</span>
+                            </p>
                           </div>
                           <div class="service-btn my-2">
-                            <i class="fs-1 text-dark">+</i>
+                            <p
+                              class="d-flex align-content-center justify-content-center"
+                            >
+                              <i class="fs-1 text-dark">+</i>
+                              <span class="text-black">Região atuante</span>
+                            </p>
                           </div>
                         </div>
                         <div
                           class="d-flex align-content-center justify-content-center gap-5"
                         >
                           <div class="service-btn my-2">
-                            <i class="fs-1 text-dark">+</i>
+                            <p
+                              class="d-flex align-content-center justify-content-center"
+                            >
+                              <i class="fs-1 text-dark">+</i>
+                              <span class="text-black">Região atuante</span>
+                            </p>
                           </div>
                           <div class="service-btn my-2">
-                            <i class="fs-1 text-dark">+</i>
+                            <p
+                              class="d-flex align-content-center justify-content-center"
+                            >
+                              <i class="fs-1 text-dark">+</i>
+                              <span class="text-black">Região atuante</span>
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -1043,6 +1053,12 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- MagicTool - Carrossel de Parceiros -->
+    <script
+      type="text/javascript"
+      src="/js/MagicToolbox/MagicScrollV2/magicscroll.js"
+    ></script>
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
