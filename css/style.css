@@ -298,6 +298,12 @@ body {
   overflow: hidden;
 }
 
+@media (min-width: 1200px) {
+  .mt-xl-4 {
+    padding-top: 10em !important;
+  }
+}
+
 .carousel-indicators {
   display: none;
 }
@@ -578,12 +584,6 @@ body {
   border-radius: 10px;
 }
 
-@media (min-width: 1200px) {
-  .pt-xl-4 {
-    padding-top: 5% !important;
-  }
-}
-
 @media (max-width: 1200px) {
   #content-icons {
     display: none !important;
@@ -599,7 +599,11 @@ body {
 
 /* Simulator Start */
 #simulator h1 {
-  font-size: 55px;
+  font-size: 30px;
+}
+
+.form-div {
+  width: 100% !important;
 }
 
 .simulador-title {
@@ -639,6 +643,12 @@ body {
 
 .btn-simulacao:hover {
   background-color: #ff3b3b;
+}
+
+@media (min-width: 1200px) {
+  #simulator .row .pt-xl-4 {
+    padding-top: 5% !important;
+  }
 }
 /* Simulator End */
 
