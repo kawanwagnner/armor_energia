@@ -1,0 +1,92 @@
+/* Estilos para o Modal de Carregamento */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.5em;
+  border-radius: 50%;
+}
+
+.modal-content {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-body p {
+  font-size: 1rem;
+}
+
+@media (max-width: 576px) {
+  .spinner-border {
+    width: 2rem;
+    height: 2rem;
+    border-width: 0.4em;
+  }
+
+  .modal-body p {
+    font-size: 0.875rem;
+  }
+}
+
+/* Estilos para o Modal de Confirmação */
+.modal-content {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  color: #007bff;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-body p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.modal-footer {
+  border-top: none;
+  padding: 1rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 576px) {
+  .modal-content {
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .modal-body p {
+    font-size: 0.875rem;
+  }
+
+  .btn-primary {
+    font-size: 0.875rem;
+  }
+}

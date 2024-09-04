@@ -42,9 +42,69 @@
 
     <!-- CSS -->
     <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/modals.css" />
   </head>
 
   <body>
+    <!-- Modal de Carregamento -->
+    <div
+      class="modal fade"
+      id="loadingModal"
+      tabindex="-1"
+      aria-labelledby="loadingModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+            <div class="spinner-container">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Carregando...</span>
+              </div>
+            </div>
+            <p class="mt-3 text-muted">
+              Aguarde enquanto processamos seu envio...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div
+      class="modal fade"
+      id="confirmationModal"
+      tabindex="-1"
+      aria-labelledby="confirmationModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmationModalLabel">Confirmação</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center">
+            <p id="modalMessage" class="mb-0">A mensagem será exibida aqui.</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Spinner Start -->
     <div
       id="spinner"
@@ -92,29 +152,27 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto py-0">
               <a href="index.html" class="nav-item nav-link active">Início</a>
-              <a href="about.html" class="nav-item nav-link text-black"
+              <a href="index.html" class="nav-item nav-link text-black"
                 >Sobre</a
               >
-              <a href="service.html" class="nav-item nav-link text-black"
+              <a href="index.html" class="nav-item nav-link text-black"
                 >Serviços</a
               >
               <div class="nav-item dropdown">
                 <a
-                  href="#"
+                  href="index.html"
                   class="nav-link dropdown-toggle text-black"
                   data-bs-toggle="dropdown"
                 >
                   Páginas
                 </a>
                 <div class="dropdown-menu m-0">
-                  <a href="feature.html" class="dropdown-item">Nosso Lema</a>
-                  <a href="team.html" class="dropdown-item">Nossos Líderes</a>
-                  <a href="testimonial.html" class="dropdown-item"
-                    >Comentários</a
-                  >
+                  <a href="index.html" class="dropdown-item">Nosso Lema</a>
+                  <a href="index.html" class="dropdown-item">Nossos Líderes</a>
+                  <a href="index.html" class="dropdown-item">Comentários</a>
                 </div>
               </div>
-              <a href="contact.html" class="nav-item nav-link text-black"
+              <a href="index.html" class="nav-item nav-link text-black"
                 >Contato</a
               >
             </div>
@@ -134,21 +192,29 @@
               </div>
             </div>
 
-            <a
-              href="#"
-              class="btn btn-primary-css d-inline-flex flex-shrink-0 py-2 px-2 text-black"
-              ><i class="fa-brands fa-facebook"></i
-            ></a>
-            <a
-              href="#"
-              class="btn btn-primary-css d-inline-flex flex-shrink-0 py-2 px-2 text-black"
-              ><i class="fa-brands fa-linkedin"></i
-            ></a>
-            <a
-              href="#"
-              class="btn btn-primary-css d-inline-flex flex-shrink-0 py-2 px-2 text-black"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
+            <div
+              id="content-icons"
+              class="d-flex align-content-center justify-content-center"
+            >
+              <a
+                href="https://www.youtube.com/@ARMORENERGIA"
+                target="_blank"
+                class="btn btn-primary-css d-inline-flex flex-shrink-0 py-2 px-2 text-black"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/armor-energia/posts/?feedView=all"
+                target="_blank"
+                class="btn btn-primary-css d-inline-flex flex-shrink-0 py-2 px-2 text-black"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/armorenergia/"
+                target="_blank"
+                class="btn btn-primary-css d-inline-flex flex-shrink-0 py-2 px-2 text-black"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </div>
           </div>
         </nav>
 
@@ -167,6 +233,7 @@
             <div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
                 <img
+                  id="carouselImage1"
                   src="img/carrossel1.png"
                   class="img-fluid w-100"
                   alt="Image"
@@ -223,6 +290,7 @@
               </div>
               <div class="carousel-item">
                 <img
+                  id="carouselImage2"
                   src="img/carrossel2.png"
                   class="img-fluid w-100"
                   alt="Image"
@@ -277,6 +345,7 @@
               </div>
               <div class="carousel-item">
                 <img
+                  id="carouselImage3"
                   src="img/carrossel3.png"
                   class="img-fluid w-100"
                   alt="Image"
@@ -364,7 +433,7 @@
               >
                 <i class="fa fa-angle-right fa-3x"></i>
               </span>
-              <span class="visually-hidden">Próximo</span>
+              <span class="visually-hidden">Avançar</span>
             </button>
           </div>
         </div>
@@ -493,7 +562,7 @@
               <h4 class="text-dark">
                 <span class="text-warning">+</span> Economia
               </h4>
-              <p class="w-50 mx-auto">
+              <p class="qualities-text w-50 text-center">
                 Levamos descontos de até 35% na conta de luz para comércios e
                 indústrias em alta tensão com gastos de até R$ 70.000,00.
               </p>
@@ -513,7 +582,7 @@
               <h4 class="text-dark">
                 <span class="text-warning">+</span> Vantagem
               </h4>
-              <p class="w-50 mx-auto">
+              <p class="qualities-text w-50 text-center">
                 Levamos descontos de até 20% na conta de luz para comércios e
                 empresas em baixa tensão, com entrega de energia renovável.
               </p>
@@ -534,7 +603,7 @@
               <h4 class="text-dark">
                 <span class="text-warning">+</span> Geração Distribuída
               </h4>
-              <p class="w-50 mx-auto">
+              <p class="qualities-text w-50 text-center">
                 Por meio de uma solução sustentável e inovadora, o consumidor
                 reduz seus custos com energia na sua conta de luz.
               </p>
@@ -554,7 +623,7 @@
               <h4 class="text-dark">
                 <span class="text-warning">+</span> Livre
               </h4>
-              <p class="w-50 mx-auto">
+              <p class="qualities-text w-50 text-center">
                 Até 35% de economia para médias e grandes empresas que operam em
                 alta tensão e têm gastos superiores a R$ 70.000,00.
               </p>
@@ -574,7 +643,7 @@
               <h4 class="text-dark">
                 <span class="text-warning">+</span> Gestão
               </h4>
-              <p class="w-50 mx-auto">
+              <p class="qualities-text w-50 text-center">
                 Para agentes do mercado livre que querem ter a melhor
                 experiência em gestão estratégica e operacional.
               </p>
@@ -654,7 +723,7 @@
               placeholder="R$0,00"
               oninput="formatarMoeda(this)"
               onblur="calcularEconomia()"
-              maxlength="11"
+              maxlength="13"
               required
             />
           </div>
@@ -841,15 +910,9 @@
             >
               <a
                 class="btn btn-secondary-css btn-md-square rounded-circle me-3"
-                href="https://www.facebook.com/bereana.cupece"
+                href="https://www.linkedin.com/company/armor-energia/posts/?feedView=all"
                 target="_blank"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a
-                class="btn btn-secondary-css btn-md-square rounded-circle me-3"
-                href="https://www.instagram.com/armorenergia/"
-                target="_blank"
-                ><i class="fab fa-twitter"></i
+                ><i class="fab fa-linkedin"></i
               ></a>
               <a
                 class="btn btn-secondary-css btn-md-square rounded-circle me-3"
@@ -859,7 +922,7 @@
               ></a>
               <a
                 class="btn btn-secondary-css btn-md-square rounded-circle me-0"
-                href="https://www.youtube.com/c/ArmorCupec%C3%AA"
+                href="https://www.youtube.com/@ARMORENERGIA"
                 target="_blank"
                 ><i class="fab fa-youtube"></i
               ></a>
@@ -898,18 +961,17 @@
           </div>
           <div class="col-md-6 col-lg-6 col-xl-3">
             <div class="footer-item d-flex flex-column">
-              <h4 class="text-white mb-4">Horário de Funcionamento</h4>
+              <h4 class="text-white mb-4">Informações</h4>
               <div class="mb-3">
-                <h6 class="text-muted mb-0">Quinta-feira:</h6>
-                <p class="text-white mb-0">20:00 às 21:30</p>
+                <h6 class="text-muted mb-0">Principal Parceiro</h6>
+                <p class="text-white mb-0">Armor Capital</p>
               </div>
               <div class="mb-3">
-                <h6 class="text-muted mb-0">Domingo:</h6>
-                <p class="text-white mb-0">18:00 às 20:30</p>
-              </div>
-              <div class="mb-3">
-                <h6 class="text-muted mb-0">Férias:</h6>
-                <p class="text-white mb-0">Indefinido...</p>
+                <h6 class="text-muted mb-0">Soluções em Energia</h6>
+                <p class="text-white mb-0">
+                  Inteligência de Mercado, Gestão de Energia e Geração
+                  Distribuída
+                </p>
               </div>
             </div>
           </div>
@@ -920,14 +982,15 @@
                 href="https://www.google.com/maps/search/?api=1&query=R.+Florentino+Blanco,+28+-+Americanópolis,+São+Paulo+-+SP,+04338-020"
                 target="_blank"
               >
-                <i class="fa fa-map-marker-alt me-2"></i> R. Florentino Blanco,
-                28 - Americanópolis, São Paulo - SP, 04338-020
+                <i class="fa fa-map-marker-alt me-2"></i> Rua Cardeal Arcoverde,
+                1641; Sala 51 - Pinheiros, São Paulo/ Brasil CEP 05407-002
               </a>
-              <a href="mailto:bereanacupece@gmail.com"
-                ><i class="fas fa-envelope me-2"></i> bereanacupece@gmail.com</a
+              <a href="mailto:contato@armorenergia.com.br"
+                ><i class="fas fa-envelope me-2"></i>
+                contato@armorenergia.com.br</a
               >
-              <a href="tel:+012 345 67890"
-                ><i class="fas fa-phone me-2"></i> (11) 5907-8999</a
+              <a href="tel:+55 11 5026 4343"
+                ><i class="fas fa-phone me-2"></i> +55 (11) 5026-4343</a
               >
             </div>
           </div>
@@ -981,11 +1044,9 @@
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Include Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/fetchAPI.js"></script>
+    <script src="js/sections_configs.js"></script>
   </body>
 </html>

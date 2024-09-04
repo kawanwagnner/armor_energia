@@ -3,12 +3,12 @@
   --color-default-bold: #ffc525;
 }
 
-.text-black {
-  color: #232323 !important;
+body {
+  overflow-x: hidden;
 }
 
-.open-sans {
-  font-family: "Open Sans", sans-serif;
+.text-black {
+  color: #232323 !important;
 }
 
 /*** Spinner Start ***/
@@ -104,9 +104,9 @@
   background: linear-gradient(135deg, orange 60%, cyan);
 }
 
-/* .text-primary-css.logo {
-  font-size: clamp(1.5rem, 4vw + 1rem, 2rem);
-} */
+.text-primary-css.logo {
+  font-size: 30px;
+}
 
 @media (max-width: 520px) {
   .text-primary-css.logo i + span {
@@ -137,7 +137,7 @@
 }
 
 .sticky-top.navbar-light .navbar-nav .nav-link {
-  padding: 20px 0;
+  padding: 30px 0;
   color: var(--bs-dark);
 }
 
@@ -195,7 +195,7 @@
   }
 
   .navbar-light .navbar-collapse {
-    margin-top: 15px;
+    margin: 15px auto;
     border-top: 1px solid #00000014;
   }
 
@@ -246,6 +246,7 @@
     background: var(--bs-light);
     border: none;
     color: #000;
+    transform: translate(17%, 0%);
   }
 
   .sticky-top.navbar-light .logo {
@@ -282,6 +283,7 @@
     display: none;
   }
 }
+
 /*** Carousel Hero Header Start ***/
 .carousel-header {
   position: relative;
@@ -386,32 +388,8 @@
   color: transparent !important;
   -webkit-text-stroke: 2px #00000056; /* Contorno do texto */
   text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
 }
-
-/* .texto-dinamico::before {
-  content: attr(data-texto); 
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: transparent;
-  -webkit-text-stroke: 2px #ccc;
-  z-index: -1;
-  filter: blur(5px);
-}
-
-.texto-dinamico::after {
-  content: attr(data-texto);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: #cccccc00; 
-  z-index: -2;
-  filter: blur(10px);
-} */
 
 .carousel-caption-2-content {
   text-align: start;
@@ -597,6 +575,18 @@
     padding-top: 9rem !important;
   }
 }
+
+@media (max-width: 1200px) {
+  #content-icons {
+    display: none !important;
+  }
+
+  .mx-auto {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+  }
+}
+
 /*** About End ***/
 
 /* Simulator Start */
@@ -714,8 +704,7 @@
 .counter {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(rgba(25, 64, 154, 0.9), rgba(25, 64, 154, 1)),
-    url(../img/fact-bg.jpg);
+  background: linear-gradient(#222222e7, #222), url(../img/armor.png);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -969,6 +958,11 @@
   justify-content: center;
   text-align: center;
   background: var(--bs-white);
+}
+
+.qualities-text {
+  display: block !important;
+  margin: auto !important;
 }
 
 @media (max-width: 992px) {
