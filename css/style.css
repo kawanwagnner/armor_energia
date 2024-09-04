@@ -140,6 +140,11 @@ body {
 }
 
 /*** Navbar ***/
+#navbar .w-75 {
+  width: 76% !important;
+  border-radius: 5px;
+}
+
 .navbar {
   transform: translate(17%, 10%);
 }
