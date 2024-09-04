@@ -642,7 +642,6 @@ body {
   color: green;
 }
 
-/* From Uiverse.io by Gaurav-WebDev */
 .btn-simulacao {
   height: 50px;
   width: 150px;
@@ -705,6 +704,14 @@ body {
 @media (min-width: 1200px) {
   #simulator .row .pt-xl-4 {
     padding-top: 5% !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .form-div {
+    margin: auto;
+    width: 150%;
+    transform: translateX(-17%);
   }
 }
 /* Simulator End */
