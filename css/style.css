@@ -15,8 +15,19 @@ body {
   font-family: sans-serif;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
+.kalam-regular {
+  font-family: "Kalam", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .text-black {
   color: #232323 !important;
+}
+
+.text-muted {
+  color: #ffffffb2 !important;
 }
 
 /*** Spinner Start ***/
@@ -602,10 +613,6 @@ body {
   font-size: 30px;
 }
 
-.form-div {
-  width: 100% !important;
-}
-
 .simulador-title {
   font-size: 4.5rem; /* 72px */
   font-weight: 100;
@@ -719,13 +726,21 @@ body {
 /*** Service End ***/
 
 /*** Counter Start ***/
-.counter {
+.counter,
+.counter2 {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(#222222e7, #222), url(../img/armor.png);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.counter {
+  background: linear-gradient(#222222e7, #222), url(../img/armor.png);
+}
+
+.counter2 {
+  background: linear-gradient(#222222b7, #22222287), url(../img/armor-lema.png) !important;
 }
 
 .counter .counter-item {
@@ -992,12 +1007,12 @@ body {
 
 /*** Footer Start ***/
 .footer {
-  background: var(--bs-dark);
+  background: #111;
 }
 
 .footer .footer-item a {
   line-height: 35px;
-  color: var(--bs-body);
+  color: #ffffffe7;
   transition: 0.5s;
 }
 
@@ -1027,7 +1042,7 @@ body {
 /*** copyright Start ***/
 .copyright {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: var(--bs-dark);
+  background: #222;
 }
 /*** copyright end ***/
 
